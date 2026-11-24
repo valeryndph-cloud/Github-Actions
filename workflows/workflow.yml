@@ -1,0 +1,18 @@
+name: Hola-mundo #clave: name / valor: Hola-mundo
+on: [push] # clave: on / valor: lista de elementos [push]
+
+jobs:  #trabajo o accion que va a realizar la automatizazcion 
+  primer-job: # nombre del job 
+    runs-on: ubuntus-latest #maquina donde correr la automatizacion
+    steps:
+     - name: Descargar el codigo 
+       uses: actions/checkout@v4  # Clonamos el repositorio del runner 
+
+     - name: Configurar python
+       uses: actions/setup-python@v5  # Instala python en la maquina de github
+       with:
+          python-version: '3.12'
+
+     - name: Ejecutar codigo 
+       run: python ejemplo.py 
+        
